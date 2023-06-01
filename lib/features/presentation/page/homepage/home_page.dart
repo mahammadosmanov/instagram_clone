@@ -12,6 +12,7 @@ import '../../widget/homepagewidgets/homepage_appbar.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final PostEntity postEntity = postEntityRohtolos;
+  final PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class HomePage extends StatelessWidget {
               const Divider(height: 10),
               HomePageTimeline(
                 postEntity: postEntityRohtolos,
+                pageController: pageController,
               ),
               const HomePageBottomBar(),
             ],

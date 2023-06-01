@@ -16,7 +16,7 @@ class PostItem extends StatelessWidget {
       height: 300,
       child: PageView.builder(
         controller: pageController,
-        physics: const BouncingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: listMediaEntity.length,
         itemBuilder: (context, index) {

@@ -18,6 +18,22 @@ class _PostIndicatorState extends State<PostIndicator> {
   late AnimationController animationController;
   double offset = 0;
 
+  void animateIndicator(bool toRight) async {
+    if (toRight) {
+      offset = offset + 1;
+    } else {
+      offset = offset - 1;
+    }
+    widget.scrollController.animateTo(
+      offset * 10,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+    await Future.delayed(
+      const Duration(milliseconds: 50),
+    ); //TODO temporary fix
+  }
+
   @override
   void initState() {
     super.initState();
@@ -25,24 +41,32 @@ class _PostIndicatorState extends State<PostIndicator> {
       setState(() {});
     });
     widget.pageController.addListener(() {
-      setState(() {
-        widget.scrollController.animateTo(offset,
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut);
-      });
+      setState(() {});
+      if (widget.pageController.page! > offset + 5.9 &&
+          offset != widget.count) {
+        animateIndicator(true);
+      } else if (widget.pageController.page! < offset - 0.9 && offset != 0) {
+        animateIndicator(false);
+      }
     });
   }
 
-  void calculate() {
-    setState(() {
-      if (widget.pageController.page! >= 6.5 ) {
-        for (widget.pageController.page;widget.pageController.page! <= widget.count ; offset++ ) {
-        }else if (1 <= widget.pageController.page!) {
-        }
-    }
+  @override
+  void didUpdateWidget(covariant PostIndicator oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    widget.scrollController.addListener(() {
+      setState(() {});
+    });
+    widget.pageController.addListener(() {
+      setState(() {});
 
+      if (widget.pageController.page! > offset + 5.5 &&
+          offset != widget.count) {
+        animateIndicator(true);
+      } else if (widget.pageController.page! < offset - 0.5 && offset != 0) {
+        animateIndicator(false);
       }
-    }
+    });
   }
 
   @override
@@ -51,6 +75,7 @@ class _PostIndicatorState extends State<PostIndicator> {
       width: 60,
       height: 10,
       child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         controller: widget.scrollController,
         itemCount: widget.count,
         shrinkWrap: false,
@@ -59,7 +84,8 @@ class _PostIndicatorState extends State<PostIndicator> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: Container(
-              width: 6,
+              //TODO add animated size
+              width: 6, //TODO check if offset
               height: 6,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -73,4 +99,4 @@ class _PostIndicatorState extends State<PostIndicator> {
       ),
     );
   }
-
+}

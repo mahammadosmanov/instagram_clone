@@ -7,10 +7,12 @@ import 'package:instagram_clone/features/presentation/widget/postwidgets/post_up
 import 'package:instagram_clone/features/presentation/widget/postwidgets/post_viewlikes.dart';
 
 class PostCardItem extends StatelessWidget {
-  PostCardItem({required this.postEntity, Key? key}) : super(key: key);
+  const PostCardItem(
+      {required this.postEntity, required this.pageController, Key? key})
+      : super(key: key);
 
   final PostEntity postEntity;
-  final PageController pageController = PageController();
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {

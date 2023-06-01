@@ -6,14 +6,14 @@ class StoryBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       //TODO change to .builder for story control
       scrollDirection: Axis.horizontal,
-      physics: const BouncingScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
         child: Row(
-          children: const [
+          children: [
             StoryCircle(
                 storyType: StoryType.myStory, profileName: 'Your story'),
             SizedBox(
