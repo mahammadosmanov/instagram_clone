@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/assets_constants.dart';
 
@@ -21,19 +22,16 @@ class ProfileCircle extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 30,
-              height: 30,
+              width: 30.w,
+              height: 30.h,
               decoration: const BoxDecoration(
-                color: Colors.orange,
                 shape: BoxShape.circle,
               ),
               child: InkWell(
                 onTap: () {},
-                child: Stack(
-                  children: [
-                    Image.asset(kPictureFrame),
-                    Image.asset(kProfilePicture), //TODO Create Image asset name
-                  ],
+                child: const CircleAvatar(
+                  radius: 100,
+                  foregroundImage: AssetImage(kDogImage),
                 ),
               ),
             ),
@@ -42,22 +40,40 @@ class ProfileCircle extends StatelessWidget {
       );
     } else if (profileCircleType == ProfileCircleType.onProfile) {
       return Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Column(
           children: [
             Container(
-              width: 100,
-              height: 100,
+              width: 90.w,
+              height: 90.h,
               decoration: const BoxDecoration(
-                color: Colors.orange,
+                color: Colors.transparent,
                 shape: BoxShape.circle,
               ),
               child: InkWell(
                 onTap: () {},
                 child: Stack(
                   children: [
-                    Image.asset(kPictureFrame),
-                    Image.asset(kProfilePicture), //TODO Create Image asset name
+                    Padding(
+                      padding:
+                          EdgeInsets.fromLTRB(7.11.w, 7.11.h, 7.11.w, 7.11.h),
+                      child: SizedBox(
+                        width: 75.79.w,
+                        height: 75.79.h,
+                        child: const CircleAvatar(
+                          radius: 100,
+                          foregroundImage: AssetImage(
+                            kDogImage,
+                          ),
+                          backgroundColor: Colors.transparent,
+                        ),
+                      ),
+                    ),
+                    const CircleAvatar(
+                      radius: 110,
+                      backgroundColor: Colors.transparent,
+                      foregroundImage: AssetImage(kStoryRing),
+                    ),
                   ],
                 ),
               ),
@@ -66,29 +82,23 @@ class ProfileCircle extends StatelessWidget {
         ),
       );
     } else {
-      return Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-        child: Column(
-          children: [
-            Container(
-              width: 26,
-              height: 26,
-              decoration: const BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle,
-              ),
-              child: InkWell(
-                onTap: () {},
-                child: Stack(
-                  children: [
-                    Image.asset(kPictureFrame),
-                    Image.asset(kProfilePicture), //TODO Create Image asset name
-                  ],
-                ),
-              ),
+      return Column(
+        children: [
+          Container(
+            width: 24.w,
+            height: 24.h,
+            decoration: const BoxDecoration(
+              color: Colors.orange,
+              shape: BoxShape.circle,
             ),
-          ],
-        ),
+            child: InkWell(
+              onTap: () {},
+              child: const CircleAvatar(
+                  foregroundImage:
+                      AssetImage(kDogImage)), //TODO Create Image asset name
+            ),
+          ),
+        ],
       );
     }
   }

@@ -16,7 +16,7 @@ class PostItem extends StatelessWidget {
       height: 300,
       child: PageView.builder(
         controller: pageController,
-        physics: const ClampingScrollPhysics(),
+        physics: const ScrollPhysics(parent: PageScrollPhysics()),
         scrollDirection: Axis.horizontal,
         itemCount: listMediaEntity.length,
         itemBuilder: (context, index) {
@@ -34,51 +34,3 @@ class PostItem extends StatelessWidget {
     );
   }
 }
-
-// class PostItem1 extends StatefulWidget {
-//   const PostItem1({
-//     Key? key,
-//     required this.listMediaEntity,
-//   }) : super(key: key);
-//
-//   final List<MediaEntity> listMediaEntity;
-//   @override
-//   State<PostItem1> createState() => _PostItem1State();
-// }
-//
-// class _PostItem1State extends State<PostItem1> {
-//   PageController pageController = PageController();
-//
-//   @override
-//   void initState() {
-//     pageController.addListener(() {
-//       print(pageController.page);
-//     });
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       width: 500,
-//       height: 300,
-//       child: PageView.builder(
-//         controller: pageController,
-//         physics: const BouncingScrollPhysics(),
-//         scrollDirection: Axis.horizontal,
-//         itemCount: widget.listMediaEntity.length,
-//         itemBuilder: (context, index) {
-//           return Container(
-//             color: Colors.white,
-//             child: widget.listMediaEntity.elementAt(index).mediaType ==
-//                     MediaType.video
-//                 ? PostVideoPlayer(
-//                     videoUrl: widget.listMediaEntity.elementAt(index).mediaUrl)
-//                 : PostImage(
-//                     imageUrl: widget.listMediaEntity.elementAt(index).mediaUrl),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }

@@ -15,8 +15,10 @@ class PostIndicator extends StatefulWidget {
 }
 
 class _PostIndicatorState extends State<PostIndicator> {
-  late AnimationController animationController;
   double offset = 0;
+  double width = 0;
+  double height = 0;
+  int scrollingIndex = 0;
 
   void animateIndicator(bool toRight) async {
     if (toRight) {
@@ -26,13 +28,77 @@ class _PostIndicatorState extends State<PostIndicator> {
     }
     widget.scrollController.animateTo(
       offset * 10,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 80),
       curve: Curves.easeInOut,
     );
     await Future.delayed(
       const Duration(milliseconds: 50),
     ); //TODO temporary fix
   }
+
+  double calculateContainerSize(index) {
+    // if (offset != 0 && offset != 1) {} dechauvell
+    //   if (offset == widget.count - 7) {
+    //     if (index == offset) {
+    //       return 2;
+    //     } else if (index == offset + 1) {
+    //       return 4;
+    //     } else {
+    //       return 6;
+    //     }
+    //   } else if (offset == widget.count - 8) {
+    //     if (index == offset || index == offset + 6) {
+    //       return 2;
+    //     } else if (index == offset + 1 || index == offset + 5) {
+    //       return 4;
+    //     } else {
+    //       return 6;
+    //     }
+    //   } else if (offset == 0) {
+    //     if (index == offset + 6) {
+    //       return 2;
+    //     } else if (index == offset + 5) {
+    //       return 4;
+    //     } else {
+    //       return 6;
+    //     }
+    //   } else if (offset == 1) {
+    //     if (index == offset + 6) {
+    //       return 2;
+    //     } else if (index == offset || index == offset + 5) {
+    //       return 4;
+    //     } else {
+    //       return 6;
+    //     }
+    //   } else {
+    //     if (index == offset || index == offset + 6) {
+    //       return 2;
+    //     } else if (index == offset + 1 || index == offset + 5) {
+    //       return 4;
+    //     } else {
+    //       return 6;
+    //     }
+    //   }
+    // }
+    if (index == offset && offset >= 2) {
+      return 2;
+    } else if (index == offset && offset >= 1) {
+      return 4;
+    } else if (index == offset + 1 && offset >= 2) {
+      return 4;
+    } else if (index == offset + 5 && offset != widget.count - 7) {
+      return 4;
+    } else if (index == offset + 6 && offset != widget.count - 7) {
+      return 2;
+    } else if (index == offset + 6 && offset == widget.count - 7) {
+      return 4;
+    } else if (index == widget.count - 1 && scrollingIndex == 1) {
+      return 6;
+    } else if (index == widget.count - 1 && scrollingIndex == 0) {
+      return 4;
+    }
+    return 6;
+  } //TODO fix indicator
 
   @override
   void initState() {
@@ -41,13 +107,20 @@ class _PostIndicatorState extends State<PostIndicator> {
       setState(() {});
     });
     widget.pageController.addListener(() {
-      setState(() {});
-      if (widget.pageController.page! > offset + 5.9 &&
-          offset != widget.count) {
-        animateIndicator(true);
-      } else if (widget.pageController.page! < offset - 0.9 && offset != 0) {
-        animateIndicator(false);
-      }
+      print(scrollingIndex);
+      setState(() {
+        if (widget.pageController.page == widget.count - 1) {
+          scrollingIndex = 1;
+        } else if (widget.pageController.page == widget.count - 6) {
+          scrollingIndex = 0;
+        }
+        if (widget.pageController.page! > offset + 4.5 &&
+            offset < widget.count - 7) {
+          animateIndicator(true);
+        } else if (widget.pageController.page! < offset + 1.5 && offset != 0) {
+          animateIndicator(false);
+        }
+      });
     });
   }
 
@@ -58,21 +131,27 @@ class _PostIndicatorState extends State<PostIndicator> {
       setState(() {});
     });
     widget.pageController.addListener(() {
-      setState(() {});
-
-      if (widget.pageController.page! > offset + 5.5 &&
-          offset != widget.count) {
-        animateIndicator(true);
-      } else if (widget.pageController.page! < offset - 0.5 && offset != 0) {
-        animateIndicator(false);
-      }
+      print(scrollingIndex);
+      setState(() {
+        if (widget.pageController.page == widget.count - 1) {
+          scrollingIndex = 1;
+        } else if (widget.pageController.page == widget.count - 6) {
+          scrollingIndex = 0;
+        }
+        if (widget.pageController.page! > offset + 4.5 &&
+            offset < widget.count - 7) {
+          animateIndicator(true);
+        } else if (widget.pageController.page! < offset + 1.5 && offset != 0) {
+          animateIndicator(false);
+        }
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
+      width: 70,
       height: 10,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -82,19 +161,32 @@ class _PostIndicatorState extends State<PostIndicator> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            child: Container(
-              //TODO add animated size
-              width: 6, //TODO check if offset
-              height: 6,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: ((widget.pageController.page! - index).abs() < 0.5)
-                    ? Colors.blue
-                    : Colors.grey,
-              ),
-            ),
-          );
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: Stack(
+                children: [
+                  Container(
+                    width: 6,
+                    height: 6,
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.white),
+                  ),
+                  Center(
+                    child: Container(
+                      //TODO add animated size
+                      width:
+                          calculateContainerSize(index), //TODO check if offset
+                      height: calculateContainerSize(index),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:
+                            ((widget.pageController.page! - index).abs() < 0.5)
+                                ? Colors.blue
+                                : Colors.grey,
+                      ),
+                    ),
+                  ),
+                ],
+              ));
         },
       ),
     );

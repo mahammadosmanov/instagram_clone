@@ -12,11 +12,10 @@ import '../../widget/homepagewidgets/homepage_appbar.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final PostEntity postEntity = postEntityRohtolos;
-  final PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    final HomePageBloc homePageBloc = BlocProvider.of<HomePageBloc>(context);
+    // final HomePageBloc homePageBloc = BlocProvider.of<HomePageBloc>(context);
     return BlocBuilder<HomePageBloc, HomePageState>(builder: (context, state) {
       return SafeArea(
         child: Scaffold(
@@ -25,12 +24,12 @@ class HomePage extends StatelessWidget {
               const HomePageAppBar(
                 appBarPage: AppBarPage.homePage,
               ),
-              const Divider(height: 5),
-              const StoryBar(),
-              const Divider(height: 10),
+              StoryBar(
+                storyList: storyList,
+              ),
               HomePageTimeline(
-                postEntity: postEntityRohtolos,
-                pageController: pageController,
+                postEntity:
+                    postEntityRohtolos, //TODO come up with backend for calling data
               ),
               const HomePageBottomBar(),
             ],

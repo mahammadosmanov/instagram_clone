@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../profile_circle.dart';
 
@@ -10,19 +11,32 @@ class PostUpBar extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const ProfileCircle(profileCircleType: ProfileCircleType.onPost),
-        const SizedBox(
-          width: 5,
-        ),
-        Text(name),
-        const Spacer(),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.more_vert),
-        ),
-      ],
+    return SizedBox(
+      width: 390.w,
+      height: 50.h,
+      child: Row(
+        children: [
+          SizedBox(
+            width: 200.w,
+            height: 36.h,
+            child: Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(2.84, 2.84, 10.84, 2.84),
+                  child: ProfileCircle(
+                      profileCircleType: ProfileCircleType.onPost),
+                ),
+                Text(name),
+              ],
+            ),
+          ),
+          const Spacer(),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert),
+          ),
+        ],
+      ),
     );
   }
 }

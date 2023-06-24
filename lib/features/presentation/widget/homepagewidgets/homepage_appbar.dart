@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/core/constants/assets_constants.dart';
 
 enum AppBarPage {
@@ -16,36 +16,70 @@ class HomePageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        SvgPicture.asset(
-          kIconInstagramLogo,
-          width: 120,
-          // ignore: deprecated_member_use
-          color: isDarkMode ? Colors.white : Colors.black,
+    return SizedBox(
+      width: 390.w,
+      height: 40.h,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 5, 14, 5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 128.w,
+              height: 30.h,
+              child: Row(
+                children: [
+                  Image.asset(
+                    kInstagramLogo,
+                    width: 104.w,
+                    height: 30.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 0, 0, 14),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Image.asset(
+                        kArrowDownIcon,
+                        width: 16.w,
+                        height: 16.h,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            SizedBox(
+              width: 72.w,
+              height: 24.h,
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Image.asset(
+                      kIconHeart,
+                      width: 24.w,
+                      height: 24.h,
+                      color: isDarkMode ? Colors.white : Colors.black,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 24.w,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Image.asset(
+                      kIconDm,
+                      width: 24.w,
+                      height: 24.h,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        InkWell(
-          onTap: () {},
-          child: const Icon(Icons.keyboard_arrow_down),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: () {},
-          child: Image.asset(
-            kIconHeart,
-            width: 24,
-            color: isDarkMode ? Colors.white : Colors.black,
-          ),
-        ),
-        InkWell(
-          onTap: () {},
-          child: Image.asset(
-            kIconDm,
-            width: 50,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/features/presentation/page/homepage/homepagebloc/home_page_bloc.dart';
-
-import 'features/presentation/page/homepage/home_page.dart';
+import 'package:instagram_clone/features/presentation/page/profilepage/profile_page.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       splitScreenMode: true,
       minTextAdapt: true,
-      designSize: const Size(866.3, 411.4),
+      designSize: const Size(390, 844),
       builder: (context, child) => MaterialApp(
         themeMode: ThemeMode.system,
         theme: ThemeData.light(),
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: BlocProvider(
           create: (BuildContext context) => HomePageBloc(),
-          child: HomePage(),
+          child: ProfilePage(),
         ),
       ),
     );

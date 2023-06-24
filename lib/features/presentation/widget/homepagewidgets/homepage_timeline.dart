@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/features/domain/entity/post_entity.dart';
 
 import '../postwidgets/post_carditem.dart';
 
 class HomePageTimeline extends StatelessWidget {
-  const HomePageTimeline(
-      {required this.postEntity, required this.pageController, Key? key})
+  const HomePageTimeline({required this.postEntity, Key? key})
       : super(key: key);
 
   final PostEntity postEntity;
-  final PageController pageController;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 607.4,
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            PostCardItem(
-              postEntity: postEntity,
-              pageController: pageController,
-            ),
-          ],
-        ),
-      ),
+      width: 390.w,
+      height: 581.h,
+      child: ListView.builder(
+          itemCount: 2,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                PostCardItem(
+                  postEntity: postEntity,
+                ),
+              ],
+            );
+          }),
     );
   }
 }
