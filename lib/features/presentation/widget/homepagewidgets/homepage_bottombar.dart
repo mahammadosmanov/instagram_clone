@@ -16,54 +16,74 @@ class HomePageBottomBar extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(15.w, 12.h, 60.w, 20.h),
-              child: Image.asset(
-                kHomePageIcon,
-                width: 24.w,
-                height: 24.h,
+            child: SizedBox(
+              width: 69.w,
+              height: 56.h,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(15.w, 12.h, 30.w, 20.h),
+                child: Image.asset(
+                  kHomePageIcon,
+                  width: 24.w,
+                  height: 24.h,
+                ),
               ),
             ),
           ),
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 12.h, 60.w, 20.h),
-              child: Image.asset(
-                kExploreIcon,
-                width: 24.w,
-                height: 24.h,
+            child: SizedBox(
+              width: 84.w,
+              height: 56.h,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30.w, 12.h, 30.w, 20.h),
+                child: Image.asset(
+                  kExploreIcon,
+                  width: 24.w,
+                  height: 24.h,
+                ),
               ),
             ),
           ),
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 12.h, 60.w, 20.h),
-              child: Image.asset(
-                kAddMediaIcon,
-                width: 24.w,
-                height: 24.h,
+            child: SizedBox(
+              width: 84.w,
+              height: 56.h,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30.w, 12.h, 30.w, 20.h),
+                child: Image.asset(
+                  kAddMediaIcon,
+                  width: 24.w,
+                  height: 24.h,
+                ),
               ),
             ),
           ),
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 12.h, 60.w, 20.h),
-              child: Image.asset(
-                kReelsIcon,
-                width: 24.w,
-                height: 24.h,
+            child: SizedBox(
+              width: 84.w,
+              height: 56.h,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30.w, 12.h, 30.w, 20.h),
+                child: Image.asset(
+                  kReelsIcon,
+                  width: 24.w,
+                  height: 24.h,
+                ),
               ),
             ),
           ),
           InkWell(
             onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 12.h, 15.w, 20.h),
-              child: const ProfileCircle(
-                  profileCircleType: ProfileCircleType.onNavigationBar),
+            child: SizedBox(
+              width: 67.w,
+              height: 56.h,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30.w, 12.h, 15.w, 20.h),
+                child: const ProfileCircle(
+                    profileCircleType: ProfileCircleType.onNavigationBar),
+              ),
             ),
           ),
         ],

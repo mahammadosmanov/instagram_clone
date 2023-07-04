@@ -93,6 +93,13 @@ flutter:
      - assets/explore_icon.png
      - assets/addmedia_icon.png
      - assets/threeline_icon.png
+     - assets/follow_button.png
+     - assets/message_button.png
+     - assets/subscribe_button.png
+     - assets/contact_button.png
+     - assets/addfriend_button.png
+     - assets/photos_icon.png
+     - assets/tag_icon.png
 
 
 

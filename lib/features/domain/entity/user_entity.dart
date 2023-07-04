@@ -5,8 +5,10 @@ class UserEntity {
   final int postCount;
   final int followerCount;
   final int followingCount;
+  final bool hasStory;
 
   UserEntity({
+    required this.hasStory,
     required this.userBio,
     required this.name,
     required this.postCount,
@@ -22,6 +24,5 @@ enum ProfileCategory {
   Blogger,
   Education,
   Gamer,
-  Restaurant,
   VideoCreator,
 }

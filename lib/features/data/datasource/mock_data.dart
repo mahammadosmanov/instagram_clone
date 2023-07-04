@@ -1,4 +1,5 @@
 import 'package:instagram_clone/features/domain/entity/post_entity.dart';
+import 'package:instagram_clone/features/domain/entity/profile_entity.dart';
 import 'package:instagram_clone/features/domain/entity/story_entity.dart';
 import 'package:instagram_clone/features/domain/entity/user_entity.dart';
 
@@ -11,6 +12,7 @@ PostEntity postEntityRohtolos = PostEntity(
     followingCount: 0,
     userBio: '',
     profileCategory: ProfileCategory.Artist,
+    hasStory: false,
   ),
   caption:
       "Rohtolos's caption sadcafgvwetfgq32erfqefqaedfmaokfna[oefna[fnma[fnao[fna[odfn[oafno[anfo[adsnfonsijfgnuvweisjuprgnvbqawengoiaengfoajkdnfons",
@@ -78,6 +80,7 @@ UserEntity userEntityMe = UserEntity(
   followingCount: 0,
   userBio: '',
   profileCategory: ProfileCategory.Artist,
+  hasStory: true,
 );
 UserEntity userEntityRohtolos = UserEntity(
   name: 'Rohtolos',
@@ -87,6 +90,7 @@ UserEntity userEntityRohtolos = UserEntity(
   userBio:
       'In seperate worlds I want It that way. Tell me something that I can change in a flash',
   profileCategory: ProfileCategory.Artist,
+  hasStory: true,
 );
 UserEntity userEntityDechauvell = UserEntity(
   name: 'Dechauvell',
@@ -95,6 +99,7 @@ UserEntity userEntityDechauvell = UserEntity(
   followingCount: 0,
   userBio: '',
   profileCategory: ProfileCategory.Artist,
+  hasStory: true,
 );
 UserEntity userEntityVoldemort = UserEntity(
   name: 'Voldemort',
@@ -103,6 +108,7 @@ UserEntity userEntityVoldemort = UserEntity(
   followingCount: 0,
   userBio: '',
   profileCategory: ProfileCategory.Artist,
+  hasStory: true,
 );
 
 List<StoryEntity> storyList = [
@@ -129,3 +135,19 @@ StoryEntity storyEntityVoldemort = StoryEntity(
   userEntity: userEntityVoldemort,
   storyType: StoryType.closeFriendStory,
 );
+
+ProfileEntity profileEntityRohtolos = ProfileEntity(imageAssetList: [
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+  'assets/dog_image.png',
+]);

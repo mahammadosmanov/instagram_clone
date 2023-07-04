@@ -7,5 +7,6 @@ class UserModel extends UserEntity {
       required super.followerCount,
       required super.followingCount,
       required super.userBio,
-      required super.profileCategory});
+      required super.profileCategory,
+      required super.hasStory});
 }
