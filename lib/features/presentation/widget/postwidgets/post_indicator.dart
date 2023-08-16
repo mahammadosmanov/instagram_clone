@@ -19,7 +19,7 @@ class _PostIndicatorState extends State<PostIndicator> {
   double width = 0;
   double height = 0;
   int scrollingIndex = 0;
-
+  int lastIndex = 0;
   void animateIndicator(bool toRight) async {
     if (toRight) {
       offset = offset + 1;
@@ -80,6 +80,7 @@ class _PostIndicatorState extends State<PostIndicator> {
     //     }
     //   }
     // }
+
     if (index == offset && offset >= 2) {
       return 2;
     } else if (index == offset && offset >= 1) {
@@ -93,9 +94,11 @@ class _PostIndicatorState extends State<PostIndicator> {
     } else if (index == offset + 6 && offset == widget.count - 7) {
       return 4;
     } else if (index == widget.count - 1 && scrollingIndex == 1) {
-      return 6;
+      lastIndex = 1;
+      return lastIndex == 1 ? 6 : 4;
     } else if (index == widget.count - 1 && scrollingIndex == 0) {
-      return 4;
+      lastIndex = 0;
+      return lastIndex == 0 ? 4 : 4;
     }
     return 6;
   } //TODO fix indicator
@@ -106,22 +109,30 @@ class _PostIndicatorState extends State<PostIndicator> {
     widget.scrollController.addListener(() {
       setState(() {});
     });
-    widget.pageController.addListener(() {
-      print(scrollingIndex);
-      setState(() {
-        if (widget.pageController.page == widget.count - 1) {
-          scrollingIndex = 1;
-        } else if (widget.pageController.page == widget.count - 6) {
-          scrollingIndex = 0;
-        }
-        if (widget.pageController.page! > offset + 4.5 &&
-            offset < widget.count - 7) {
-          animateIndicator(true);
-        } else if (widget.pageController.page! < offset + 1.5 && offset != 0) {
-          animateIndicator(false);
-        }
-      });
-    });
+    widget.pageController.addListener(
+      () {
+        print(scrollingIndex);
+        print(offset);
+        print(widget.pageController.page);
+        print(lastIndex);
+        setState(
+          () {
+            if (widget.pageController.page! > widget.count - 6) {
+              scrollingIndex = 1;
+            } else if (widget.pageController.page! <= widget.count - 6) {
+              scrollingIndex = 0;
+            }
+            if (widget.pageController.page! > offset + 4.5 &&
+                offset < widget.count - 7) {
+              animateIndicator(true);
+            } else if (widget.pageController.page! < offset + 1.5 &&
+                offset != 0) {
+              animateIndicator(false);
+            }
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -132,6 +143,8 @@ class _PostIndicatorState extends State<PostIndicator> {
     });
     widget.pageController.addListener(() {
       print(scrollingIndex);
+      print(offset);
+      print(widget.pageController.page);
       setState(() {
         if (widget.pageController.page == widget.count - 1) {
           scrollingIndex = 1;

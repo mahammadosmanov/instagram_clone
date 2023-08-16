@@ -37,6 +37,8 @@ class HomePageAppBar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(8, 0, 0, 14),
                     child: InkWell(
+                      splashFactory: NoSplash.splashFactory,
+                      highlightColor: Colors.transparent,
                       onTap: () {},
                       child: Image.asset(
                         kArrowDownIcon,
@@ -55,6 +57,8 @@ class HomePageAppBar extends StatelessWidget {
               child: Row(
                 children: [
                   InkWell(
+                    splashFactory: NoSplash.splashFactory,
+                    highlightColor: Colors.transparent,
                     onTap: () {},
                     child: Image.asset(
                       kIconHeart,
@@ -67,6 +71,8 @@ class HomePageAppBar extends StatelessWidget {
                     width: 24.w,
                   ),
                   InkWell(
+                    splashFactory: NoSplash.splashFactory,
+                    highlightColor: Colors.transparent,
                     onTap: () {},
                     child: Image.asset(
                       kIconDm,

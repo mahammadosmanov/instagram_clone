@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/core/constants/assets_constants.dart';
 
-class ProfilePageNavigationBar extends StatelessWidget {
-  const ProfilePageNavigationBar({required this.profileName, super.key});
+class ProfilePageAppBar extends StatelessWidget {
+  const ProfilePageAppBar({required this.profileName, super.key});
   final String profileName;
   @override
   Widget build(BuildContext context) {

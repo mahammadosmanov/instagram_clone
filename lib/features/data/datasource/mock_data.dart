@@ -1,5 +1,6 @@
 import 'package:instagram_clone/features/domain/entity/post_entity.dart';
 import 'package:instagram_clone/features/domain/entity/profile_entity.dart';
+import 'package:instagram_clone/features/domain/entity/reels_entity.dart';
 import 'package:instagram_clone/features/domain/entity/story_entity.dart';
 import 'package:instagram_clone/features/domain/entity/user_entity.dart';
 
@@ -150,4 +151,9 @@ ProfileEntity profileEntityRohtolos = ProfileEntity(imageAssetList: [
   'assets/dog_image.png',
   'assets/dog_image.png',
   'assets/dog_image.png',
+]);
+
+ReelsEntity RohtolosReelsEntity = ReelsEntity(reelsUrls: [
+  'https://www.videvo.net/video/the-interior-of-a-data-processing-center-3/656716/',
+  'https://www.videvo.net/video/the-interior-of-a-data-processing-center-3/656716/'
 ]);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/features/presentation/widget/postwidgets/post_indicator.dart';
-
 import '../../../../core/constants/assets_constants.dart';
 
 class PostBottomBar extends StatelessWidget {

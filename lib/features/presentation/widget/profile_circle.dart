@@ -27,12 +27,9 @@ class ProfileCircle extends StatelessWidget {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
-              child: InkWell(
-                onTap: () {},
-                child: const CircleAvatar(
-                  radius: 100,
-                  foregroundImage: AssetImage(kDogImage),
-                ),
+              child: const CircleAvatar(
+                radius: 100,
+                foregroundImage: AssetImage(kDogImage),
               ),
             ),
           ],
@@ -50,32 +47,29 @@ class ProfileCircle extends StatelessWidget {
                 color: Colors.transparent,
                 shape: BoxShape.circle,
               ),
-              child: InkWell(
-                onTap: () {},
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.fromLTRB(7.11.w, 7.11.h, 7.11.w, 7.11.h),
-                      child: SizedBox(
-                        width: 75.79.w,
-                        height: 75.79.h,
-                        child: const CircleAvatar(
-                          radius: 100,
-                          foregroundImage: AssetImage(
-                            kDogImage,
-                          ),
-                          backgroundColor: Colors.transparent,
+              child: Stack(
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(7.11.w, 7.11.h, 7.11.w, 7.11.h),
+                    child: SizedBox(
+                      width: 75.79.w,
+                      height: 75.79.h,
+                      child: const CircleAvatar(
+                        radius: 100,
+                        foregroundImage: AssetImage(
+                          kDogImage,
                         ),
+                        backgroundColor: Colors.transparent,
                       ),
                     ),
-                    const CircleAvatar(
-                      radius: 110,
-                      backgroundColor: Colors.transparent,
-                      foregroundImage: AssetImage(kStoryRing),
-                    ),
-                  ],
-                ),
+                  ),
+                  const CircleAvatar(
+                    radius: 110,
+                    backgroundColor: Colors.transparent,
+                    foregroundImage: AssetImage(kStoryRing),
+                  ),
+                ],
               ),
             ),
           ],
@@ -91,12 +85,9 @@ class ProfileCircle extends StatelessWidget {
               color: Colors.orange,
               shape: BoxShape.circle,
             ),
-            child: InkWell(
-              onTap: () {},
-              child: const CircleAvatar(
-                  foregroundImage:
-                      AssetImage(kDogImage)), //TODO Create Image asset name
-            ),
+            child: const CircleAvatar(
+                foregroundImage:
+                    AssetImage(kDogImage)), //TODO Create Image asset name
           ),
         ],
       );

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/features/presentation/widget/profile_circle.dart';
+import '../../../core/constants/assets_constants.dart';
 
-import '../../../../core/constants/assets_constants.dart';
-
-class HomePageBottomBar extends StatelessWidget {
-  const HomePageBottomBar({Key? key}) : super(key: key);
+class BottomBar extends StatelessWidget {
+  const BottomBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,11 @@ class HomePageBottomBar extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {},
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+            onTap: () {
+              context.go('/');
+            },
             child: SizedBox(
               width: 69.w,
               height: 56.h,
@@ -30,6 +34,8 @@ class HomePageBottomBar extends StatelessWidget {
             ),
           ),
           InkWell(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
             onTap: () {},
             child: SizedBox(
               width: 84.w,
@@ -45,6 +51,8 @@ class HomePageBottomBar extends StatelessWidget {
             ),
           ),
           InkWell(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
             onTap: () {},
             child: SizedBox(
               width: 84.w,
@@ -60,6 +68,8 @@ class HomePageBottomBar extends StatelessWidget {
             ),
           ),
           InkWell(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
             onTap: () {},
             child: SizedBox(
               width: 84.w,
@@ -75,7 +85,11 @@ class HomePageBottomBar extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+            onTap: () {
+              context.go('/profile');
+            },
             child: SizedBox(
               width: 67.w,
               height: 56.h,

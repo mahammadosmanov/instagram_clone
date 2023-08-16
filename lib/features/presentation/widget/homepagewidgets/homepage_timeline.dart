@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/features/domain/entity/post_entity.dart';
-
 import '../postwidgets/post_carditem.dart';
 
 class HomePageTimeline extends StatelessWidget {
@@ -14,8 +13,9 @@ class HomePageTimeline extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 390.w,
-      height: 581.h,
+      height: 596.h,
       child: ListView.builder(
+          //TODO add PageController and logic for reset timeline
           itemCount: 2,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {

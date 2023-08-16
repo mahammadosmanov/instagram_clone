@@ -21,12 +21,21 @@ class PostUpBar extends StatelessWidget {
             height: 36.h,
             child: Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(2.84, 2.84, 10.84, 2.84),
-                  child: ProfileCircle(
-                      profileCircleType: ProfileCircleType.onPost),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(2.84, 2.84, 10.84, 2.84),
+                  child: InkWell(
+                    splashFactory: NoSplash.splashFactory,
+                    highlightColor: Colors.transparent,
+                    onTap: () {},
+                    child: const ProfileCircle(
+                        profileCircleType: ProfileCircleType.onPost),
+                  ),
                 ),
-                Text(name),
+                InkWell(
+                    splashFactory: NoSplash.splashFactory,
+                    highlightColor: Colors.transparent,
+                    onTap: () {},
+                    child: Text(name)),
               ],
             ),
           ),

@@ -10,7 +10,9 @@ class HighLight extends StatelessWidget {
       width: 390.w,
       height: 86.h,
       child: ListView.builder(
-        itemBuilder: (context, index) {}, //TODO build HighLight section
+        itemBuilder: (context, index) {
+          return null;
+        }, //TODO build HighLight section
       ),
     );
   }

@@ -21,6 +21,8 @@ class StoryContainer extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
+              splashFactory: NoSplash.splashFactory,
+              highlightColor: Colors.transparent,
               onTap: () {},
               child: storyType == StoryType.hasWatchedStory
                   ? HasWatchedStoryCircle(
