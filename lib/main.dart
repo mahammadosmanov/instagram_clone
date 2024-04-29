@@ -25,9 +25,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        // home: BlocProvider(
-        //   create: (BuildContext context) => HomePageBloc(),
-        //   child: HomePage(),
       ),
     );
   }

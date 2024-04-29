@@ -23,10 +23,11 @@ class _PostVideoPlayerState extends State<PostVideoPlayer> {
 
   @override
   void initState() {
-    _videoPlayerController = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(widget.videoUrl as Uri)
+          ..initialize().then((_) {
+            setState(() {});
+          });
     _videoPlayerController.play();
     super.initState();
   }

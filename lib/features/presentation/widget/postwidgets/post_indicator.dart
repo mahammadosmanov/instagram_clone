@@ -111,10 +111,6 @@ class _PostIndicatorState extends State<PostIndicator> {
     });
     widget.pageController.addListener(
       () {
-        print(scrollingIndex);
-        print(offset);
-        print(widget.pageController.page);
-        print(lastIndex);
         setState(
           () {
             if (widget.pageController.page! > widget.count - 6) {
@@ -142,9 +138,6 @@ class _PostIndicatorState extends State<PostIndicator> {
       setState(() {});
     });
     widget.pageController.addListener(() {
-      print(scrollingIndex);
-      print(offset);
-      print(widget.pageController.page);
       setState(() {
         if (widget.pageController.page == widget.count - 1) {
           scrollingIndex = 1;

@@ -19,10 +19,10 @@ class UserEntity {
 }
 
 enum ProfileCategory {
-  Artist,
-  Musician,
-  Blogger,
-  Education,
-  Gamer,
-  VideoCreator,
+  artist,
+  musician,
+  blogger,
+  education,
+  gamer,
+  videoCreator,
 }

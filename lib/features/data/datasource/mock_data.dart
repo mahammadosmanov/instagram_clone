@@ -12,7 +12,7 @@ PostEntity postEntityRohtolos = PostEntity(
     followerCount: 0,
     followingCount: 0,
     userBio: '',
-    profileCategory: ProfileCategory.Artist,
+    profileCategory: ProfileCategory.artist,
     hasStory: false,
   ),
   caption:
@@ -80,7 +80,7 @@ UserEntity userEntityMe = UserEntity(
   followerCount: 0,
   followingCount: 0,
   userBio: '',
-  profileCategory: ProfileCategory.Artist,
+  profileCategory: ProfileCategory.artist,
   hasStory: true,
 );
 UserEntity userEntityRohtolos = UserEntity(
@@ -90,7 +90,7 @@ UserEntity userEntityRohtolos = UserEntity(
   followingCount: 0,
   userBio:
       'In seperate worlds I want It that way. Tell me something that I can change in a flash',
-  profileCategory: ProfileCategory.Artist,
+  profileCategory: ProfileCategory.artist,
   hasStory: true,
 );
 UserEntity userEntityDechauvell = UserEntity(
@@ -99,7 +99,7 @@ UserEntity userEntityDechauvell = UserEntity(
   followerCount: 0,
   followingCount: 0,
   userBio: '',
-  profileCategory: ProfileCategory.Artist,
+  profileCategory: ProfileCategory.artist,
   hasStory: true,
 );
 UserEntity userEntityVoldemort = UserEntity(
@@ -108,7 +108,7 @@ UserEntity userEntityVoldemort = UserEntity(
   followerCount: 0,
   followingCount: 0,
   userBio: '',
-  profileCategory: ProfileCategory.Artist,
+  profileCategory: ProfileCategory.artist,
   hasStory: true,
 );
 
@@ -153,7 +153,7 @@ ProfileEntity profileEntityRohtolos = ProfileEntity(imageAssetList: [
   'assets/dog_image.png',
 ]);
 
-ReelsEntity RohtolosReelsEntity = ReelsEntity(reelsUrls: [
+ReelsEntity rohtolosReelsEntity = ReelsEntity(reelsUrls: [
   'https://www.videvo.net/video/the-interior-of-a-data-processing-center-3/656716/',
   'https://www.videvo.net/video/the-interior-of-a-data-processing-center-3/656716/'
 ]);

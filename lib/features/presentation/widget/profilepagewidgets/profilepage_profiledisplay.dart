@@ -30,7 +30,6 @@ class _ProfileDisplayState extends State<ProfileDisplay> {
     pageController.addListener(() {
       setState(() {
         currentPage = pageController.page!;
-        print(currentPage);
       });
     });
     super.didUpdateWidget(oldWidget);

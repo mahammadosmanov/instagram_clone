@@ -5,7 +5,7 @@ import 'package:video_player/video_player.dart';
 
 class GridReelsView extends StatefulWidget {
   GridReelsView({super.key});
-  ReelsEntity reelsEntity = RohtolosReelsEntity;
+  final ReelsEntity reelsEntity = rohtolosReelsEntity;
   @override
   State<GridReelsView> createState() => _GridReelsViewState();
 }
@@ -16,11 +16,11 @@ class _GridReelsViewState extends State<GridReelsView> {
 
   @override
   void initState() {
-    _videoPlayerController =
-        VideoPlayerController.network(widget.reelsEntity.reelsUrls[indexVideo])
-          ..initialize().then((_) {
-            setState(() {});
-          });
+    _videoPlayerController = VideoPlayerController.networkUrl(
+        widget.reelsEntity.reelsUrls[indexVideo])
+      ..initialize().then((_) {
+        setState(() {});
+      });
     _videoPlayerController.play();
     super.initState();
   }

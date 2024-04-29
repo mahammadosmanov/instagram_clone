@@ -14,8 +14,9 @@ class PostBottomBar extends StatelessWidget {
   }) : super(key: key);
   final int length;
   final PageController pageController;
-  final isLiked;
-  final isSaved;
+
+  final bool isLiked;
+  final bool isSaved;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

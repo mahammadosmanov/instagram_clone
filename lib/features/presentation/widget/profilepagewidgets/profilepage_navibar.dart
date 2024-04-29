@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instagram_clone/core/constants/assets_constants.dart';
 
 class ProfileNavigationBar extends StatefulWidget {
-  ProfileNavigationBar({super.key, required this.page});
-  double page;
+  const ProfileNavigationBar({super.key, required this.page});
+  final double page;
 
   @override
   State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();

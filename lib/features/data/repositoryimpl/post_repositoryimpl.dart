@@ -2,17 +2,11 @@ import 'package:instagram_clone/features/domain/repository/post_repository.dart'
 
 class PostRepositoryImpl extends PostRepository {
   @override
-  void likePost() {
-    // TODO: implement likePost
-  }
+  void likePost() {}
 
   @override
-  void savePost() {
-    // TODO: implement savePost
-  }
+  void savePost() {}
 
   @override
-  void goProfile() {
-    // TODO: implement goProfile
-  }
+  void goProfile() {}
 }
